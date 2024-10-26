@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Автомобили</title>
+</head>
+<body>
+<h1>Автомобили</h1>
+<ul>
+    {% for car_key, car_value in cars.items %}
+    <li>
+        <h2>{{ car_value.model }}</h2>
+        <hr>
+    </li>
+    {% endfor %}
+</ul>
+</body>
+</html>
