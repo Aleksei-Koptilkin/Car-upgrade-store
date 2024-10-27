@@ -46,4 +46,4 @@ def get_info_car_model(request, model_car):
     if model_car in model_car_dict:
         return render(request, model_car_dict[model_car]['path'], context=data)
     else:
-        return HttpResponseNotFound(f'Автомобиля {model_car} пока отсутствует.')
+        return HttpResponseNotFound(f'Автомобиль {model_car} пока отсутствует.')
