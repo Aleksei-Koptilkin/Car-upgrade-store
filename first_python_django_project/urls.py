@@ -21,9 +21,9 @@ from main_page.views import page_not_found
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('main_page.urls')),
-    path('upgrades/', include('upgrades.urls')),
-    path('legend_cars/', include('legend_cars.urls')),
+    path('', include('main_page.urls', namespace='main_page')),
+    path('upgrades/', include('upgrades.urls', namespace='upgrades')),
+    path('legend_cars/', include('legend_cars.urls', namespace='legend_cars')),
 ]
 
 handler404 = page_not_found

@@ -6,8 +6,8 @@ from django.template.loader import render_to_string
 
 
 project_apps = [
-    {'name': 'Автомобили', 'url': 'car_selection'},
-    {'name': 'Тюнинг', 'url': 'upgrades_selection'},
+    {'name': 'Автомобили', 'url': 'legend_cars:car_selection'},
+    {'name': 'Тюнинг', 'url': 'upgrades:upgrades_selection'},
 ]
 
 def main_page(requset):

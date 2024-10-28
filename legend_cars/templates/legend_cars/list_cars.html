@@ -6,11 +6,11 @@
 </head>
 <body>
 <h1>Автомобили</h1>
-<a href="{% url 'home' %}">На главную страницу</a>
+<a href="{% url 'main_page:main_page' %}">На главную страницу</a>
 <ul>
     {% for car_key, car_value in cars.items %}
     <li>
-        <h2><a href="{% url 'car_url' model_car=car_key%}">{{ car_value.model }}</a></h2>
+        <h2><a href="{% url 'legend_cars:car_url' model_car=car_key%}">{{ car_value.model }}</a></h2>
         <hr>
     </li>
     {% endfor %}
