@@ -5,6 +5,11 @@
     <title>{{ model }}</title>
 </head>
 <body>
+<span style="white-space: nowrap;">
+    <a href="{% url 'main_page:main_page' %}">На главную страницу</a> |
+    <a href="{% url 'legend_cars:car_selection' %}">К выбору автомобилей</a>
+    <hr>
+</span>
 <h1>{{ model }}</h1>
 <p>{{ production_years }}<p>
 <p>{{  engine_info }}<p>
