@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{ model }}</title>
+    <title>{{ car }}</title>
 </head>
 <body>
 <span style="white-space: nowrap;">
@@ -10,8 +10,8 @@
     <a href="{% url 'legend_cars:car_selection' %}">К выбору автомобилей</a>
     <hr>
 </span>
-<h1>{{ model }}</h1>
-<p>{{ production_years }}<p>
-<p>{{  engine_info }}<p>
+<h1>Автомобиль {{ car }}</h1>
+<p>Годы выпуска с {{ car.year_start_production }} по {{ car.year_end_production }} год<p>
+<p>Двигатель {{ car.engine }} объемом {{ car.engine_displacement }} л. и мощностью {{ car.power_hp }} л.с.<p>
 </body>
 </html>
