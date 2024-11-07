@@ -3,7 +3,6 @@ from django.db import models
 # Create your models here.
 
 class Car(models.Model):
-    link = models.CharField(max_length=50, verbose_name="Ссылка")
     car_brand = models.CharField(max_length=50, verbose_name="Марка")
     model = models.CharField(max_length=50, verbose_name="Модель")
     body_index = models.CharField(max_length=10, verbose_name="Индекс кузова")

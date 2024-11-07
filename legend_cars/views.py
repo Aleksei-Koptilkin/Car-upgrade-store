@@ -12,7 +12,7 @@ def cars(request):
     }
     return render(request, 'legend_cars/list_cars.html', context=data )
 
-def get_info_car_model(request, model_car):
-    car = get_object_or_404(Car, link=model_car)
+def get_info_car_model(request, id_car):
+    car = get_object_or_404(Car, id=id_car)
 
     return render(request, 'legend_cars/car_info.html', context={'car':car})
