@@ -8,11 +8,11 @@ from .models import Car
 
 def cars(request):
     data = {
-        'cars': Car.objects.all()
+        'cars': Car.objects.order_by('car_brand')
     }
     return render(request, 'legend_cars/list_cars.html', context=data )
 
-def get_info_car_model(request, id_car):
-    car = get_object_or_404(Car, id=id_car)
+def get_info_car_model(request, slug_car:str):
+    car = get_object_or_404(Car, slug=slug_car)
 
     return render(request, 'legend_cars/car_info.html', context={'car':car})

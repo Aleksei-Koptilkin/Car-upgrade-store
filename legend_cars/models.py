@@ -1,4 +1,5 @@
 from django.db import models
+from pytils.translit import slugify
 
 # Create your models here.
 
@@ -12,6 +13,12 @@ class Car(models.Model):
     engine = models.CharField(max_length=50, verbose_name="Двигатель")
     engine_displacement = models.FloatField(verbose_name="Объём двигателя")
     power_hp = models.IntegerField(verbose_name="Мощность в л.с.")
+    slug = models.SlugField(max_length=50, verbose_name='Slug поле', default='')
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.__str__())
+        return super().save( *args, **kwargs)
+
 
     def __str__(self):
         return f'{self.car_brand} {self.model} {self.version} {self.body_index}'

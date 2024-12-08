@@ -11,7 +11,7 @@
 <ul>
     {% for car in cars %}
     <li>
-        <h2><a href="{% url 'legend_cars:car_url' id_car=car.id %}">{{ car }}</a></h2>
+        <h2><a href="{% url 'legend_cars:car_url' slug_car=car.slug %}">{{ car }}</a></h2>
         <hr>
     </li>
     {% endfor %}
