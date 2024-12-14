@@ -13,6 +13,7 @@ class Car(models.Model):
     engine = models.CharField(max_length=50, verbose_name="Двигатель")
     engine_displacement = models.FloatField(verbose_name="Объём двигателя")
     power_hp = models.IntegerField(verbose_name="Мощность в л.с.")
+    weight = models.IntegerField(verbose_name="Вес в кг.", null=True)
     slug = models.SlugField(max_length=50, verbose_name='Slug поле', default='')
 
     def save(self, *args, **kwargs):
@@ -22,4 +23,27 @@ class Car(models.Model):
 
     def __str__(self):
         return f'{self.car_brand} {self.model} {self.version} {self.body_index}'
+
+
+class Engine(models.Model):
+    NO_BOOST = 'NO'
+    TURBOCHARGER = 'TU'
+    SUPERCHARGER = 'SU'
+    BOOST_TYPE = [
+        (NO_BOOST, 'Без наддува'),
+        (TURBOCHARGER, 'Турбонаддув'),
+        (SUPERCHARGER, 'Компрессор'),
+    ]
+
+    engine_name = models.CharField(max_length=50, verbose_name="Двигатель")
+    engine_brand = models.CharField(max_length=50, verbose_name="Производитель")
+    displacement = models.FloatField(verbose_name="Объём двигателя")
+    power_hp = models.IntegerField(verbose_name="Мощность в л.с.")
+    boost_type = models.CharField(max_length=12, choices=BOOST_TYPE, verbose_name="Тип наддува")
+    weight = models.IntegerField(verbose_name="Вес в кг.")
+
+    def __str__(self):
+        return self.engine_name
+
+
 
