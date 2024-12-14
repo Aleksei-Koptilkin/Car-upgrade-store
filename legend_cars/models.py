@@ -10,10 +10,8 @@ class Car(models.Model):
     version = models.CharField(max_length=50, verbose_name="Версия",null=True)
     year_start_production = models.IntegerField(verbose_name="Год начала производства")
     year_end_production = models.IntegerField(verbose_name="Год окончания производства")
-    engine = models.CharField(max_length=50, verbose_name="Двигатель")
-    engine_displacement = models.FloatField(verbose_name="Объём двигателя")
-    power_hp = models.IntegerField(verbose_name="Мощность в л.с.")
-    weight = models.IntegerField(verbose_name="Вес в кг.", null=True)
+    engine = models.ForeignKey('Engine', on_delete=models.PROTECT, null=True, verbose_name="Двигатель")
+    weight = models.IntegerField(verbose_name="Вес в кг.")
     slug = models.SlugField(max_length=50, verbose_name='Slug поле', default='')
 
     def save(self, *args, **kwargs):
