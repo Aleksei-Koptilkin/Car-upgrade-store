@@ -5,6 +5,6 @@ from . import views
 app_name = 'legend_cars'
 
 urlpatterns = [
-    path('', views.cars, name='car_selection'),
-    path('<slug:slug_car>', views.get_info_car_model, name='car_url')
+    path('', views.Cars.as_view(), name='car_selection'),
+    path('<slug:slug_car>', views.CarInfo.as_view(), name='car_url')
 ]
